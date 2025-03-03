@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  app:
+    image: mcr.microsoft.com/devcontainers/python:3.10
+
+    volumes:
+      - ../..:/workspaces:cached
+
+    environment:
+      PYTHONUNBUFFERED: 1
+
+    command: sleep infinity
+    
+    networks:
+      - dev-net
+
+networks:
+  dev-net:
