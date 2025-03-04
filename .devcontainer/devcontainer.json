@@ -4,11 +4,7 @@
 	"service": "app",
 	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
 	"postCreateCommand": "pip install poetry; poetry config virtualenvs.in-project true; poetry install;",
-	"forwardPorts": [
-		5432,
-		6333,
-		6334
-	],
+	"forwardPorts": [],
 	// "features": {},
 	// "remoteUser": "root",
 	"customizations": {
