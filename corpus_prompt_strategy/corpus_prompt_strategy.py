@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-from models.corpus import Corpus, KNOWLEDGE_KEYS
+from ..models.corpus import Corpus, KNOWLEDGE_KEYS
 
 
 class CorpusPromptStrategy(ABC):
