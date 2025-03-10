@@ -116,6 +116,16 @@ class DatasetInfo(BaseModel):
         return self
 
 
+class CorpusAdd(BaseModel):
+    """语料添加请求体"""
+
+    dataset_name: str
+    """语料库名称"""
+
+    corpus: Corpus
+    """语料内容"""
+
+
 __all__ = [
     "ROLE_TYPE",
     "KNOWLEDGE_KEYS",
@@ -123,4 +133,5 @@ __all__ = [
     "Message",
     "Corpus",
     "DatasetInfo",
+    "CorpusAdd",
 ]
