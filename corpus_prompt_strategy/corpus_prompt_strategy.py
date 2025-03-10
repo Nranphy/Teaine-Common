@@ -13,6 +13,21 @@ class CorpusPromptStrategy(ABC):
     """需要使用的知识文本块，用于 Corpus 对象构建参考"""
 
     @classmethod
+    def check(cls, corpus: Corpus) -> bool:
+        """检查语料是否满足策略要求"""
+        keys_ls = []
+        for i, msg in enumerate(corpus.data[::]):
+            if i < cls.last_n_knowledge:
+                if not msg.knowledge:
+                    return False
+            keys_ls.extend(msg.knowledge.keys())
+        keys_set = set(keys_ls)
+        for key in keys_set:
+            if key not in cls.knowledge_keys:
+                return False
+        return True
+
+    @classmethod
     @abstractmethod
     def convert(cls, corpus: Corpus) -> str:
         """Corpus 实例转 Prompt 文本"""
